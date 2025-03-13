@@ -139,47 +139,49 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[75vh] flex items-center"> {/* Height reduced from h-screen to h-[75vh] */}
+      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0">
-          <motion.div
+        <div className="absolute inset-0 w-full h-full">
+          <motion.img
+            src="/assets/mtm hero home.jpg"
+            alt="MTM Hero"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `url('/assets/mtm hero home.jpg')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}
+            className="w-full h-full object-cover"
           />
         </div>
 
         {/* Content Section */}
-        <div className="relative container mx-auto px-4 z-10">
-          <motion.div
+        <div className="relative z-10 text-center px-6 md:px-12">
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="max-w-3xl"
+            className="text-white text-4xl md:text-6xl font-bold mb-4"
           >
-            <h1 className="text-6xl font-bold text-white mb-6">
-              Welcome to MTM Sr. Sec. School
-            </h1>
-            <p className="text-2xl text-white/90 mb-8">
-              Shaping Future, Building Dreams!
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300"
-            >
-              Discover More
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </motion.button>
-          </motion.div>
+            Welcome to MTM Sr. Sec. School
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-white text-lg md:text-2xl mb-6"
+          >
+            Shaping Future, Building Dreams!
+          </motion.p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300"
+          >
+            Discover More
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </motion.button>
         </div>
       </section>
+
+
 
 
 

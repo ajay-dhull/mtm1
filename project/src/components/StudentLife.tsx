@@ -210,96 +210,100 @@ export default function StudentLife() {
   });
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center">
-        {/* Hero Image without any effect */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `url('/assets/about4.jpg')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
+    <div className="min-h-screen w-full overflow-x-hidden"> {/* 👈 Fixed Scroll Issue */}
+    {/* Hero Section */}
+<section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 w-full h-full bg-cover bg-center"
+    style={{
+      backgroundImage: `url('/assets/about4.jpg')`,
+    }}
+  />
 
-        <div className="relative container mx-auto px-4 z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
-          >
-            <h1 className="text-5xl font-bold text-white mb-6">
-              Experience Vibrant Student Life
-            </h1>
-            <p className="text-2xl text-white mb-8">
-              Where learning meets fun, creativity, and personal growth
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-blue-900 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-colors duration-300"
-            >
-              Explore Events
-            </motion.button>
-          </motion.div>
-        </div>
-      </section>
+  {/* Content Section */}
+  <div className="relative z-10 text-center px-6 md:px-12 max-w-3xl">
+    <motion.h1
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-white text-4xl md:text-5xl font-bold mb-4"
+    >
+      Experience Vibrant Student Life
+    </motion.h1>
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-white text-lg md:text-2xl mb-6"
+    >
+      Where learning meets fun, creativity, and personal growth
+    </motion.p>
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="px-8 py-4 bg-white text-blue-900 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300"
+    >
+      Explore Events
+    </motion.button>
+  </div>
+</section>
+
+
 
       {/* Events & Festivals */}
-<section className="py-16 bg-white">
-  <div className="container mx-auto px-4 max-w-6xl">
-    <motion.h2
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="text-4xl font-bold text-center mb-10"
-    >
-      Events & Celebrations
-    </motion.h2>
-    <Slider {...sliderSettings} slidesToShow={1} slidesToScroll={1}>
-      {events.map((event, index) => (
-        <div key={index} className="px-3">
-          <motion.div
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative group"
+            className="text-4xl font-bold text-center mb-10"
           >
-            <div className="rounded-lg overflow-hidden h-[600px] w-full relative">
-              <img
-                src={event.image}
-                alt={event.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              
-              {/* Hover pe Play Button */}
-              {event.video && (
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button
-                    onClick={() => window.open(event.video, "_blank")}
-                    className="bg-black/60 text-white p-4 rounded-full hover:bg-black/80"
-                  >
-                    <svg className="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </button>
-                </div>
-              )}
+            Events & Celebrations
+          </motion.h2>
+          <Slider {...sliderSettings} slidesToShow={1} slidesToScroll={1}>
+            {events.map((event, index) => (
+              <div key={index} className="px-3">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="relative group"
+                >
+                  <div className="rounded-lg overflow-hidden h-[600px] w-full relative">
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 className="text-2xl font-bold">{event.title}</h3>
-                <p className="text-white/70 text-base">{event.description}</p>
+                    {/* Hover pe Play Button */}
+                    {event.video && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button
+                          onClick={() => window.open(event.video, "_blank")}
+                          className="bg-black/60 text-white p-4 rounded-full hover:bg-black/80"
+                        >
+                          <svg className="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </button>
+                      </div>
+                    )}
+
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <h3 className="text-2xl font-bold">{event.title}</h3>
+                      <p className="text-white/70 text-base">{event.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
-            </div>
-          </motion.div>
+            ))}
+          </Slider>
         </div>
-      ))}
-    </Slider>
-  </div>
-</section>
+      </section>
 
 
 

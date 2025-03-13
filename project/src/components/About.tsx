@@ -81,39 +81,42 @@ export default function About() {
   });
 
   return (
-    <div className="min-h-screen">
-      {/* Banner Section */}
-      <section className="relative h-[90vh] flex items-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 5.6 }}
-          transition={{ duration: 1.5 }}
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `url('/assets/hero3.jpg')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
-        <div className="relative container mx-auto px-4 z-10 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl font-bold text-white mb-4"
-          >
-            Discover Excellence at MTM Sr. Sec. School
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-white/90"
-          >
-            Building Tomorrow's Leaders Today
-          </motion.p>
-        </div>
-      </section>
+    <div className="min-h-screen w-full overflow-x-hidden">  {/* 👈 Added w-full & overflow-x-hidden */}
+     {/* About Section Banner */}
+<section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+  {/* Background Image */}
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1.5 }}
+    className="absolute inset-0 w-full h-full bg-cover bg-center"
+    style={{
+      backgroundImage: `url('/assets/hero3.jpg')`,
+    }}
+  />
+
+  {/* Content Section */}
+  <div className="relative z-10 text-center px-6 md:px-12 max-w-3xl">
+    <motion.h1
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-white text-4xl md:text-5xl font-bold mb-4"
+    >
+      About MTM Sr. Sec. School
+    </motion.h1>
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="text-white text-lg md:text-2xl mb-6"
+    >
+      Excellence in Education, Leadership, and Innovation
+    </motion.p>
+  </div>
+</section>
+
+
 
       {/* School Overview */}
       <section className="py-20 bg-white">
